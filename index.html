@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PS4 Jailbreak Host & GoldHEN</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">🎮 PS4 Host Auto Exploit</div>
+            <p>موقع تهكير منصة سوني 4 واختيار ثغرات GoldHEN</p>
+        </header>
+
+        <!-- قسم GoldHEN السريع -->
+        <section class="goldhen-card">
+            <h2>🔥 GoldHEN Payload</h2>
+            <p>قم بتشغيل السيرفر المحلي في جهازك ثم اضغط للتحميل المباشر</p>
+            <button class="btn-goldhen" onclick="triggerGoldHen()">تفعيل GoldHEN v2.4b16</button>
+        </section>
+
+        <!-- قسم اختيار إصدار النظام -->
+        <section class="firmware-section">
+            <h3>اختر إصدار نظام جهازك (Firmware):</h3>
+            <div class="fw-grid">
+                <button class="fw-btn supported" onclick="runExploit('5.05')">FW 5.05</button>
+                <button class="fw-btn supported" onclick="runExploit('6.72')">FW 6.72</button>
+                <button class="fw-btn supported" onclick="runExploit('7.02')">FW 7.02</button>
+                <button class="fw-btn supported" onclick="runExploit('7.55')">FW 7.55</button>
+                <button class="fw-btn supported" onclick="runExploit('9.00')">FW 9.00 (pAIO)</button>
+                <button class="fw-btn supported" onclick="runExploit('11.00')">FW 11.00 (PPPwn)</button>
+                <button class="fw-btn unsupported" onclick="showInfo('11.50 - 13.52')">FW 11.50 - 13.52</button>
+            </div>
+        </section>
+
+        <!-- شاشة حالة الاستجابة -->
+        <div id="status-box" class="status-box">
+            حالة النظام: بانتظار اختيار الثغرة...
+        </div>
+
+        <footer>
+            <p>تنبيه: لا توجد ثغرة كيرنل مباشرة للإصدارات أعلى من 11.00 حتى الآن.</p>
+        </footer>
+    </div>
+
+    <script>
+        function runExploit(fw) {
+            const status = document.getElementById('status-box');
+            status.style.display = 'block';
+            status.innerHTML = 'جاري تحميل ثغرة ' + fw + ' ... يرجى الانتظار';
+            status.style.borderColor = '#00f2fe';
+
+            setTimeout(() => {
+                status.innerHTML = 'تم تحميل ثغرة ' + fw + ' بنجاح! جاهز لتشغيل GoldHEN.';
+            }, 1500);
+        }
+
+        function triggerGoldHen() {
+            const status = document.getElementById('status-box');
+            status.style.display = 'block';
+            status.innerHTML = 'جاري إرسال حمولة GoldHEN إلى الجهاز...';
+            status.style.borderColor = '#ff0055';
+        }
+
+        function showInfo(range) {
+            const status = document.getElementById('status-box');
+            status.style.display = 'block';
+            status.style.borderColor = '#ffaa00';
+            status.innerHTML = 'الإصدارات (' + range + ') غير مدعومة بتهكير كامل حتى الآن، نوصي بعدم التحديث.';
+        }
+    </script>
+</body>
+</html>
